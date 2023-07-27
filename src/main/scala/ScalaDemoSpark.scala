@@ -15,7 +15,7 @@ object ScalaDemoSpark {
     val rdd3 = rdd2.map(x => (x, 1))
     val rdd_out = rdd1.flatMap(x => x.split(" ")).map(x => (x.toLowerCase(), 1)).reduceByKey((x, y) => x + y).sortBy(_._2)
     //rdd_out.collect.foreach(println)
-    rdd3.collect.foreach(println)
+    rdd_out.collect.foreach(println)
     rdd_out.saveAsTextFile(args(1))
   }
 
